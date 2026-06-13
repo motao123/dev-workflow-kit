@@ -1,0 +1,113 @@
+name: Skill proposal
+description: Propose a new workflow skill for dev-workflow-kit
+labels: [skill-proposal]
+body:
+  - type: input
+    id: skill_name
+    attributes:
+      label: Proposed skill name
+      description: Use lowercase kebab-case.
+      placeholder: environment-config-audit
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem should this skill solve?
+      description: Describe the workflow bottleneck or user need.
+      placeholder: Teams keep shipping config drift because environment assumptions are not reviewed explicitly.
+    validations:
+      required: true
+
+  - type: textarea
+    id: applicable
+    attributes:
+      label: When should this skill be used?
+      description: List the applicable scenarios.
+      placeholder: |
+        - environment-specific rollout risk
+        - missing config parity
+        - unclear required secrets
+    validations:
+      required: true
+
+  - type: textarea
+    id: non_applicable
+    attributes:
+      label: When should this skill NOT be used?
+      description: List the non-applicable scenarios.
+      placeholder: |
+        - generic debugging
+        - feature implementation itself
+    validations:
+      required: true
+
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Proposed workflow
+      description: Describe the numbered workflow this skill should follow.
+      placeholder: |
+        1. Identify config surfaces.
+        2. Compare local/staging/prod assumptions.
+        3. Flag missing or risky config.
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Expected output
+      description: What should the skill produce for the user?
+      placeholder: Risk summary, missing config checklist, rollout cautions.
+    validations:
+      required: true
+
+  - type: textarea
+    id: coordination
+    attributes:
+      label: Coordination with existing skills
+      description: Which existing skills does this build on or hand off to?
+      placeholder: Use after planning, before ship-readiness, or alongside release-rollout-strategy.
+
+  - type: textarea
+    id: invocation
+    attributes:
+      label: Example invocation
+      description: Give 1-3 example prompts.
+      placeholder: |
+        - Use environment-config-audit before release.
+        - Use environment-config-audit to compare staging and prod assumptions.
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Proposed files to add or update
+      description: Confirm the expected skill file structure or any root docs that would need changes.
+      placeholder: |
+        - <skill>/SKILL.md
+        - <skill>/README.md
+        - <skill>/evals/evals.json
+        - <skill>/references/examples.md
+        - root README.md
+        - root SKILL.md
+        - references/skill-catalog.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: overlap
+    attributes:
+      label: Why should this be a separate skill?
+      description: Explain overlap with existing skills and why a new one is justified.
+      placeholder: It is distinct from fix-ci because it is preventive and broader than pipeline failures.
+
+  - type: textarea
+    id: evals
+    attributes:
+      label: Optional eval ideas or success criteria
+      description: Add possible prompts or checks for validating the new skill.
+      placeholder: One positive trigger, one ambiguous routing case, one negative trigger.

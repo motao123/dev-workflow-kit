@@ -1,0 +1,58 @@
+name: Docs improvement
+description: Suggest improvements to README, skill docs, examples, or reference material
+labels: [documentation]
+body:
+  - type: input
+    id: target
+    attributes:
+      label: Affected doc area
+      description: Which file or section should be improved?
+      placeholder: README.md / references/skill-catalog.md / planning/README.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_problem
+    attributes:
+      label: What is unclear or missing today?
+      placeholder: The quick start is clear, but it does not explain how to choose between change-impact-analysis and planning.
+    validations:
+      required: true
+
+  - type: textarea
+    id: improvement
+    attributes:
+      label: Proposed improvement
+      placeholder: Add a short tie-break example in the quick start or examples section.
+    validations:
+      required: true
+
+  - type: textarea
+    id: audience
+    attributes:
+      label: Who would this help?
+      placeholder: First-time contributors, repo visitors, or users of a specific skill.
+    validations:
+      required: true
+
+  - type: textarea
+    id: related_skills
+    attributes:
+      label: Related skill(s) or files (optional)
+      placeholder: |
+        - change-impact-analysis
+        - planning
+        - root README.md
+
+  - type: textarea
+    id: sample
+    attributes:
+      label: Suggested wording or outline (optional)
+      description: If you already have copy or a structure in mind, add it here.
+
+  - type: checkboxes
+    id: consistency
+    attributes:
+      label: Consistency check
+      options:
+        - label: This improvement may also require updates to other files for consistency.
