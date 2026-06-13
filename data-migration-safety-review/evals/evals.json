@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use data-migration-safety-review before we run this schema backfill in production.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use data-migration-safety-review to check whether this migration is safely reversible.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Review this package license risk before release.",
+    "should_trigger": false
+  }
+]

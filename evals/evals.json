@@ -16,6 +16,10 @@
     "should_trigger": true
   },
   {
+    "prompt": "Use systematic-debugging from dev-workflow-kit to reproduce and narrow this flaky failure before we change code.",
+    "should_trigger": true
+  },
+  {
     "prompt": "Use architecture-refactor-guidance from dev-workflow-kit before we split this module into cleaner boundaries.",
     "should_trigger": true
   },
@@ -25,6 +29,14 @@
   },
   {
     "prompt": "Use dependency-compliance-audit from dev-workflow-kit to review whether this package is safe to adopt and compatible with policy.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use review-address-comments from dev-workflow-kit to classify and resolve this PR feedback.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use browser-verification from dev-workflow-kit to smoke test this new form flow and watch for console errors.",
     "should_trigger": true
   },
   {
@@ -41,6 +53,14 @@
   },
   {
     "prompt": "Use environment-config-audit from dev-workflow-kit to compare staging and prod assumptions before release.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use data-migration-safety-review from dev-workflow-kit before we run this schema backfill in production.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use docs-writer from dev-workflow-kit to draft migration notes and update the README for this setup change.",
     "should_trigger": true
   },
   {

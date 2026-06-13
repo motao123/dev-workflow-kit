@@ -1,7 +1,7 @@
 # dev-workflow-kit
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![Skills: 17](https://img.shields.io/badge/Skills-17-6f42c1.svg)
+![Skills: 18](https://img.shields.io/badge/Skills-18-6f42c1.svg)
 ![Branch: main](https://img.shields.io/badge/Branch-main-2ea44f.svg)
 ![Evals Included](https://img.shields.io/badge/Evals-Included-orange.svg)
 ![Examples Included](https://img.shields.io/badge/Examples-Included-1f6feb.svg)
@@ -10,7 +10,7 @@
 
 它不是“写代码技巧合集”，而是把开发过程中真正反复出现的环节拆成独立 skill：**规划、影响分析、重构判断、调试、CI、评审处理、浏览器验证、安全检查、依赖审计、发布策略、发版前检查、文档沉淀**。
 
-- 覆盖从需求规划到上线交付的 **17 个 workflow skills**
+- 覆盖从需求规划到上线交付的 **18 个 workflow skills**
 - 面向 **Claude Code / Codex / 兼容 Agent** 的实际开发流程，而不只是“写代码”
 - 每个 skill 都带有 **README、eval 样例和 prompt 示例**
 
@@ -76,6 +76,7 @@
 - `release-rollout-strategy`
 - `performance-investigation`
 - `environment-config-audit`
+- `data-migration-safety-review`
 - `ship-readiness`
 - `docs-writer`
 
@@ -112,6 +113,7 @@ Review / Verification
         v
 Release / Delivery
         +--> environment-config-audit
+        +--> data-migration-safety-review
         +--> release-rollout-strategy
         +--> ship-readiness
         +--> docs-writer
@@ -138,6 +140,7 @@ Release / Delivery
 | `release-rollout-strategy` | 发布、灰度、回滚和监控策略 | rollout 方案、checkpoint、回滚条件 |
 | `performance-investigation` | 性能瓶颈排查 | 瓶颈类型、热点、下一步测量方向 |
 | `environment-config-audit` | 环境一致性和配置漂移审计 | parity 风险、config blocker、建议检查项 |
+| `data-migration-safety-review` | 数据迁移和 backfill 安全审查 | 迁移风险、回滚限制、验证 checkpoint |
 | `ship-readiness` | merge / release 前总检查 | blocker、done/missing、风险总结 |
 | `docs-writer` | README / migration / release note / 示例 | 文档草稿、说明结构、补齐建议 |
 
@@ -162,6 +165,7 @@ Release / Delivery
 - 现在卡在“CI 不过” -> `fix-ci`
 - 现在卡在“性能为什么变差” -> `performance-investigation`
 - 现在卡在“发版环境是否一致” -> `environment-config-audit`
+- 现在卡在“数据迁移是否安全” -> `data-migration-safety-review`
 - 现在卡在“能不能上线” -> `ship-readiness`
 
 ### 第一次调用
@@ -200,7 +204,7 @@ incident-observability-triage -> performance-investigation / systematic-debuggin
 
 ### 发版前检查
 ```text
-environment-config-audit -> dependency-compliance-audit -> security-review -> release-rollout-strategy -> ship-readiness -> docs-writer
+environment-config-audit -> data-migration-safety-review -> dependency-compliance-audit -> security-review -> release-rollout-strategy -> ship-readiness -> docs-writer
 ```
 
 ---
@@ -247,6 +251,11 @@ environment-config-audit -> dependency-compliance-audit -> security-review -> re
 用 dev-workflow-kit 的 environment-config-audit 在发版前检查 local、staging、prod 的配置假设是否一致。
 ```
 
+### 审查数据迁移安全
+```text
+用 dev-workflow-kit 的 data-migration-safety-review 在上线前审查这个 schema backfill 是否安全。
+```
+
 ### 设计 rollout
 ```text
 用 dev-workflow-kit 的 release-rollout-strategy，给这个功能设计一个带监控和回滚条件的上线方案。
@@ -258,7 +267,7 @@ environment-config-audit -> dependency-compliance-audit -> security-review -> re
 
 ### 当前版本亮点
 - standalone：不依赖外部 skill 命名体系
-- 17 个 skill 覆盖从规划到交付的关键环节
+- 18 个 skill 覆盖从规划到交付的关键环节
 - v3 新增：
   - `change-impact-analysis`
   - `release-rollout-strategy`
@@ -267,16 +276,18 @@ environment-config-audit -> dependency-compliance-audit -> security-review -> re
   - `test-strategy-gap-review`
   - `performance-investigation`
   - `environment-config-audit`
+- v5 新增：
+  - `data-migration-safety-review`
 
 ### 已完成
 - v1：基础 lifecycle skill 集
 - v2：重构 / incident / dependency 三个方向扩展
 - v3：impact / rollout / contract 三个方向扩展
 - v4：test strategy / performance / environment config 三个方向扩展
+- v5：data migration safety 方向扩展
 - standalone 化：去除外部 skill 依赖命名
 
 ### 后续可以继续扩展
-- `data-migration-safety-review`
 - 更丰富的 eval 样例
 - 更完整的截图 / GIF / 使用录屏
 

@@ -75,7 +75,15 @@ These were chosen because they extend the pack into three common workflow gaps t
 - uncertainty about where performance pain really comes from
 - uncertainty about whether environments are aligned enough to release safely
 
-`data-migration-safety-review` remains a good future addition, but was deferred to keep v4 tighter and reduce overlap with existing API compatibility and rollout skills.
+## V5 expansion rationale
+
+The v5 expansion adds a dedicated persistent-data safety layer.
+
+The added v5 skill is:
+
+1. `data-migration-safety-review` for schema changes, backfills, coexistence windows, rollback limits, and staged data transition risk.
+
+This was added because data changes are often the highest-risk part of a release, and they deserve a more focused workflow than generic rollout planning or API contract review alone.
 
 ## Packaging choice
 

@@ -17,6 +17,7 @@
 | rollout 形态、checkpoint、回滚设计 | `release-rollout-strategy` | rollout 方案、checkpoint、rollback 条件 | Before release |
 | 延迟、吞吐、CPU、内存等性能问题 | `performance-investigation` | 性能瓶颈类型、热点、下一步测量或优化方向 | During perf triage / before optimization |
 | 环境一致性、配置漂移、flags、secrets 风险 | `environment-config-audit` | parity 风险、config blocker、建议检查项 | Before release / before rollout |
+| 数据迁移、backfill、schema 变更安全性 | `data-migration-safety-review` | 迁移风险、回滚限制、验证 checkpoint | Before migration / before release |
 | 准备 merge / release | `ship-readiness` | 发布前检查表、剩余 blocker、风险摘要 | Near completion |
 | 文档和知识沉淀 | `docs-writer` | README / migration / release note / 示例草稿 | After implementation |
 
@@ -34,6 +35,7 @@
 10. `browser-verification` / `security-review` / `dependency-compliance-audit` / `api-contract-compatibility-review` when applicable
 11. `performance-investigation` when latency or resource pressure is the core issue
 12. `environment-config-audit` when config parity is still open
-13. `release-rollout-strategy` when release shape is still open
-14. `ship-readiness`
-15. `docs-writer`
+13. `data-migration-safety-review` when persistent data transition risk is the main blocker
+14. `release-rollout-strategy` when release shape is still open
+15. `ship-readiness`
+16. `docs-writer`

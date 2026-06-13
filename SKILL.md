@@ -252,6 +252,19 @@ Choose this for:
 Expected output:
 - parity risks, config blockers, and recommended next checks
 
+### 18. `data-migration-safety-review`
+Use when the main risk is changing persistent data safely.
+
+Choose this for:
+- schema migrations
+- backfills or reindex operations
+- dual-write or coexistence windows
+- reversibility concerns
+- rollout ordering for persistent data changes
+
+Expected output:
+- migration risks, rollback limits, and safest staged path
+
 ## Tie-Breaker Rules
 
 When categories overlap:
@@ -270,6 +283,7 @@ When categories overlap:
 - `release-rollout-strategy` beats `ship-readiness` when the main uncertainty is how to release, not whether the work is complete.
 - `performance-investigation` beats `systematic-debugging` when latency, throughput, resource usage, or slowness are the core symptom.
 - `environment-config-audit` beats `fix-ci` when the issue is environment parity, secrets, flags, or deploy-time assumptions rather than a single pipeline failure.
+- `data-migration-safety-review` beats generic rollout planning when persistent data transition risk is the main concern.
 
 ## Handoff Logic
 
@@ -282,11 +296,12 @@ Use these common transitions:
 - `systematic-debugging` -> active implementation workflow or `fix-ci`
 - `incident-observability-triage` -> `systematic-debugging`, `security-review`, or active implementation workflow
 - `fix-ci` -> active implementation workflow -> `ship-readiness`
-- `api-contract-compatibility-review` -> `change-impact-analysis`, `release-rollout-strategy`, or `docs-writer`
+- `api-contract-compatibility-review` -> `change-impact-analysis`, `release-rollout-strategy`, `data-migration-safety-review`, or `docs-writer`
 - `dependency-compliance-audit` -> `security-review`, `docs-writer`, or `ship-readiness`
-- `release-rollout-strategy` -> `ship-readiness`, `incident-observability-triage`, or `docs-writer`
+- `release-rollout-strategy` -> `ship-readiness`, `incident-observability-triage`, `data-migration-safety-review`, or `docs-writer`
 - `performance-investigation` -> `incident-observability-triage`, `systematic-debugging`, or active implementation workflow
 - `environment-config-audit` -> `release-rollout-strategy`, `ship-readiness`, or `docs-writer`
+- `data-migration-safety-review` -> `api-contract-compatibility-review`, `release-rollout-strategy`, or `docs-writer`
 - `docs-writer` only after behavior is stable enough to document
 
 ## Coordination Patterns
@@ -308,7 +323,8 @@ Typical flow:
 13. Use `release-rollout-strategy` when rollout shape, monitoring, or rollback design is the main question.
 14. Use `performance-investigation` when slowness or resource pressure is the real issue.
 15. Use `environment-config-audit` when config parity or deploy-time assumptions are the real risk.
-16. Use `docs-writer` to capture user-facing or developer-facing knowledge.
+16. Use `data-migration-safety-review` when persistent data safety is the main release concern.
+17. Use `docs-writer` to capture user-facing or developer-facing knowledge.
 
 ## Invocation Examples
 
@@ -326,3 +342,4 @@ Typical flow:
 - "Use release-rollout-strategy from dev-workflow-kit to design a safer rollout for this release."
 - "Use performance-investigation from dev-workflow-kit to narrow this latency regression before optimizing."
 - "Use environment-config-audit from dev-workflow-kit to compare staging and prod assumptions before release."
+- "Use data-migration-safety-review from dev-workflow-kit before we run this schema backfill in production."
