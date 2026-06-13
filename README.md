@@ -1,17 +1,41 @@
 # dev-workflow-kit
 
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![Skills: 14](https://img.shields.io/badge/Skills-14-6f42c1.svg)
+![Branch: main](https://img.shields.io/badge/Branch-main-2ea44f.svg)
+![Evals Included](https://img.shields.io/badge/Evals-Included-orange.svg)
+![Examples Included](https://img.shields.io/badge/Examples-Included-1f6feb.svg)
+
 一个面向 Claude Code / Codex / 兼容 Agent 的 **软件交付全流程 skill 集合**。
 
 它不是“写代码技巧合集”，而是把开发过程中真正反复出现的环节拆成独立 skill：**规划、影响分析、重构判断、调试、CI、评审处理、浏览器验证、安全检查、依赖审计、发布策略、发版前检查、文档沉淀**。
 
+- 覆盖从需求规划到上线交付的 **14 个 workflow skills**
+- 面向 **Claude Code / Codex / 兼容 Agent** 的实际开发流程，而不只是“写代码”
+- 每个 skill 都带有 **README、eval 样例和 prompt 示例**
+
 > 目标很简单：让 AI 不只是会改代码，而是能更稳地推进整个交付流程。
+
+**快速入口：** [快速开始](#快速开始) · [Skills 一览](#skills-一览) · [推荐工作流](#推荐工作流) · [调用示例](#调用示例) · [Contributing](#contributing)
+
+## 目录
+
+- [为什么会有这个项目](#为什么会有这个项目)
+- [覆盖的交付环节](#覆盖的交付环节)
+- [生命周期技能地图](#生命周期技能地图)
+- [Skills 一览](#skills-一览)
+- [快速开始](#快速开始)
+- [推荐工作流](#推荐工作流)
+- [调用示例](#调用示例)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
 ## 为什么会有这个项目
 
-很多仓库里，编码只是中间的一段。
-真正容易卡住的，往往是这些问题：
+很多仓库里，编码只是中间的一段。真正容易卡住的，往往是这些问题：
 
 - 需求还没拆清楚，先写容易返工
 - 改一个点，不知道会影响哪些模块和消费者
@@ -28,7 +52,7 @@
 
 ---
 
-## 它解决什么问题
+## 覆盖的交付环节
 
 ### 1. 让任务先被拆清楚
 - `planning`
@@ -89,7 +113,7 @@ Release / Delivery
 
 ---
 
-## 当前包含的 skills
+## Skills 一览
 
 | Skill | 用途 | 典型输出 |
 | --- | --- | --- |
@@ -110,17 +134,26 @@ Release / Delivery
 
 ---
 
-## Quick Start
+## 快速开始
 
-### 1) 安装
+### 安装
 把整个目录放到技能目录：
 
 ```text
 ~/.codex/skills/dev-workflow-kit
 ```
 
-### 2) 先从一个最直接的问题开始
-比如：
+### 如何选择 skill
+按**当前瓶颈**来选，而不是按最终目标来选：
+
+- 现在卡在“需求没拆清” -> `planning`
+- 现在卡在“这次改动影响谁” -> `change-impact-analysis`
+- 现在卡在“为什么坏了” -> `systematic-debugging`
+- 现在卡在“CI 不过” -> `fix-ci`
+- 现在卡在“能不能上线” -> `ship-readiness`
+
+### 第一次调用
+先从一个最直接的问题开始，例如：
 
 ```text
 用 dev-workflow-kit 的 planning 先把这个需求拆成实现步骤、风险和验证方案。
@@ -132,65 +165,11 @@ Release / Delivery
 用 dev-workflow-kit 的 fix-ci，看最早失败日志，给我最小修复路径。
 ```
 
-### 3) 按当前瓶颈挑 skill，而不是按最终目标挑
-例如：
-- 现在卡在“需求没拆清” -> `planning`
-- 现在卡在“这次改动影响谁” -> `change-impact-analysis`
-- 现在卡在“为什么坏了” -> `systematic-debugging`
-- 现在卡在“CI 不过” -> `fix-ci`
-- 现在卡在“能不能上线” -> `ship-readiness`
+> 仓库结构约定很简单：根目录有 `SKILL.md`、`README.md`、`evals/`、`references/`，每个子 skill 目录都包含 `SKILL.md`、`README.md`、`evals/evals.json`、`references/examples.md`。
 
 ---
 
-## 安装与使用
-
-### 安装路径
-
-```text
-~/.codex/skills/dev-workflow-kit
-```
-
-### 目录结构
-
-```text
-dev-workflow-kit/
-├── SKILL.md
-├── README.md
-├── LICENSE
-├── evals/
-├── references/
-├── planning/
-├── change-impact-analysis/
-├── architecture-refactor-guidance/
-├── systematic-debugging/
-├── incident-observability-triage/
-├── fix-ci/
-├── review-address-comments/
-├── browser-verification/
-├── security-review/
-├── dependency-compliance-audit/
-├── api-contract-compatibility-review/
-├── release-rollout-strategy/
-├── ship-readiness/
-└── docs-writer/
-```
-
-### 根目录文件说明
-- `SKILL.md`：总入口路由 skill
-- `README.md`：GitHub 首页 / 项目说明
-- `evals/evals.json`：顶层触发样例
-- `references/skill-catalog.md`：问题类型到 skill 的映射
-- `references/design-notes.md`：设计 rationale
-
-### 每个 skill 目录里的文件说明
-- `SKILL.md`：技能定义
-- `README.md`：人类可读说明
-- `evals/evals.json`：触发样例
-- `references/examples.md`：真实 prompt 示例
-
----
-
-## 推荐使用流
+## 推荐工作流
 
 ### 功能开发
 ```text
@@ -226,34 +205,14 @@ dependency-compliance-audit -> security-review -> release-rollout-strategy -> sh
 用 dev-workflow-kit 的 change-impact-analysis 看一下这次改动会影响哪些模块、接口和验证面。
 ```
 
-### 判断重构路径
-```text
-用 dev-workflow-kit 的 architecture-refactor-guidance，先判断这个重构应该怎么切边界、怎么分步落地。
-```
-
 ### 排查复杂 bug
 ```text
 用 dev-workflow-kit 的 systematic-debugging，先复现并缩小范围，再决定怎么修。
 ```
 
-### 处理告警
-```text
-用 dev-workflow-kit 的 incident-observability-triage，基于日志和指标先判断影响范围和优先级。
-```
-
 ### 处理 CI
 ```text
 用 dev-workflow-kit 的 fix-ci，看最早失败日志，给我最小修复路径。
-```
-
-### 处理评审意见
-```text
-用 dev-workflow-kit 的 review-address-comments，把这轮 review comment 分类并逐条处理。
-```
-
-### 做依赖审计
-```text
-用 dev-workflow-kit 的 dependency-compliance-audit，评估这个新依赖的风险、license 和是否适合上线。
 ```
 
 ### 看 API 契约兼容性
@@ -266,42 +225,17 @@ dependency-compliance-audit -> security-review -> release-rollout-strategy -> sh
 用 dev-workflow-kit 的 release-rollout-strategy，给这个功能设计一个带监控和回滚条件的上线方案。
 ```
 
-### 发布前检查
-```text
-用 dev-workflow-kit 的 ship-readiness，看看这个分支离 merge / release 还差什么。
-```
-
----
-
-## Showcase / Demo 占位
-
-### 终端会话示例
-> TODO: 这里可以补一个从 planning -> fix-ci -> ship-readiness 的完整对话截图
-
-### 工作流对比示例
-> TODO: 这里可以补“只会写代码的 agent” vs “能推进交付流程的 agent” 对比图
-
-### UI 验证示例
-> TODO: 这里可以补 browser-verification 的截图或录屏链接
-
----
-
-## v3 新增亮点
-
-本次 v3 重点增加了 3 个更偏“独立交付能力”的 skill：
-
-- `change-impact-analysis`
-- `release-rollout-strategy`
-- `api-contract-compatibility-review`
-
-这 3 个方向让项目从“会规划、会排障、会验收”进一步扩展到：
-- 预判改动影响
-- 设计发布路径
-- 审查接口兼容性
-
 ---
 
 ## Roadmap
+
+### 当前版本亮点
+- standalone：不依赖外部 skill 命名体系
+- 14 个 skill 覆盖从规划到交付的关键环节
+- v3 新增：
+  - `change-impact-analysis`
+  - `release-rollout-strategy`
+  - `api-contract-compatibility-review`
 
 ### 已完成
 - v1：基础 lifecycle skill 集
