@@ -60,6 +60,10 @@
     "should_trigger": true
   },
   {
+    "prompt": "Use security-review from dev-workflow-kit on this auth change before we merge it.",
+    "should_trigger": true
+  },
+  {
     "prompt": "Use docs-writer from dev-workflow-kit to draft migration notes and update the README for this setup change.",
     "should_trigger": true
   },

@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Read the contributing guide
-    url: ../CONTRIBUTING.md
+    url: https://github.com/motao123/dev-workflow-kit/blob/main/CONTRIBUTING.md
     about: Review the repository contribution rules before proposing a new skill or opening a docs issue.
   - name: Read the project README
-    url: ../README.md
+    url: https://github.com/motao123/dev-workflow-kit/blob/main/README.md
     about: Check the skill catalog, quick start, and workflow map before opening an issue.

@@ -63,6 +63,7 @@
 ### 2. 让问题先被定位清楚
 - `systematic-debugging`
 - `incident-observability-triage`
+- `performance-investigation`
 - `fix-ci`
 
 ### 3. 让改动在合并前更可控
@@ -74,7 +75,6 @@
 
 ### 4. 让上线和交付更稳
 - `release-rollout-strategy`
-- `performance-investigation`
 - `environment-config-audit`
 - `data-migration-safety-review`
 - `ship-readiness`

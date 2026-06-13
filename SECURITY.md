@@ -10,7 +10,15 @@
 - 可能泄露敏感信息的文档或示例
 - 可能影响仓库使用者安全判断的错误说明
 
-请通过**私下渠道**联系仓库维护者处理。
+请通过 **GitHub Private Vulnerability Reporting** 私下报告：
+
+- 仓库：https://github.com/motao123/dev-workflow-kit
+- 报告页面：https://github.com/motao123/dev-workflow-kit/security/advisories/new
+
+提交时尽量包含：
+- 受影响的文件或 skill 名
+- 复现 / 触发说明
+- 建议的修复方向（可选）
 
 ## What belongs here
 
