@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    name: Validate JSON and skill structure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate eval JSON files
+        shell: bash
+        run: |
+          set -euo pipefail
+          fail=0
+          while IFS= read -r f; do
+            if ! python3 -c "import json,sys; json.load(open(sys.argv[1], encoding='utf-8'))" "$f"; then
+              echo "::error file=$f::invalid JSON"
+              fail=1
+            else
+              echo "ok $f"
+            fi
+          done < <(find . -path ./.git -prune -o -name 'evals.json' -print)
+          exit $fail
+
+      - name: Check skill directory contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          chmod +x scripts/check-skill-structure.sh
+          scripts/check-skill-structure.sh

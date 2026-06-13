@@ -1,5 +1,6 @@
 # dev-workflow-kit
 
+![CI](https://github.com/motao123/dev-workflow-kit/actions/workflows/ci.yml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Skills: 18](https://img.shields.io/badge/Skills-18-6f42c1.svg)
 ![Branch: main](https://img.shields.io/badge/Branch-main-2ea44f.svg)
@@ -264,6 +265,8 @@ environment-config-audit -> data-migration-safety-review -> dependency-complianc
 ---
 
 ## Roadmap
+
+完整版本历史见 [`CHANGELOG.md`](./CHANGELOG.md)。
 
 ### 当前版本亮点
 - standalone：不依赖外部 skill 命名体系
