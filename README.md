@@ -7,6 +7,8 @@
 ![Evals Included](https://img.shields.io/badge/Evals-Included-orange.svg)
 ![Examples Included](https://img.shields.io/badge/Examples-Included-1f6feb.svg)
 
+> Homepage: <https://motao123.github.io/dev-workflow-kit/>
+
 一个面向 Claude Code / Codex / 兼容 Agent 的 **软件交付全流程 skill 集合**。
 
 它不是“写代码技巧合集”，而是把开发过程中真正反复出现的环节拆成独立 skill：**规划、影响分析、重构判断、调试、CI、评审处理、浏览器验证、安全检查、依赖审计、发布策略、发版前检查、文档沉淀**。

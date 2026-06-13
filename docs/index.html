@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dev-workflow-kit · 21 lifecycle skills for Claude Code & Codex</title>
+  <meta name="description" content="dev-workflow-kit is a standalone collection of 21 markdown-first software delivery workflow skills for Claude Code, Codex, and compatible agents. Planning to delivery." />
+  <link rel="canonical" href="https://motao123.github.io/dev-workflow-kit/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="dev-workflow-kit" />
+  <meta property="og:description" content="21 lifecycle skills for Claude Code / Codex / compatible agents — planning to delivery." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://motao123.github.io/dev-workflow-kit/" />
+
+  <style>
+    :root {
+      --accent: #6f42c1;
+      --accent-soft: #ede5f8;
+      --fg: #1f2328;
+      --fg-soft: #57606a;
+      --bg: #ffffff;
+      --bg-soft: #f6f8fa;
+      --border: #d0d7de;
+      --code-bg: #f6f8fa;
+      --shadow: 0 1px 2px rgba(31, 35, 40, 0.04), 0 4px 12px rgba(31, 35, 40, 0.04);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --accent: #b08cf2;
+        --accent-soft: #2a1f48;
+        --fg: #e6edf3;
+        --fg-soft: #9198a1;
+        --bg: #0d1117;
+        --bg-soft: #161b22;
+        --border: #30363d;
+        --code-bg: #161b22;
+        --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 3px;
+    }
+
+    /* Header / hero */
+    header.hero {
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    header.hero h1 {
+      margin: 0;
+      font-size: 40px;
+      letter-spacing: -0.5px;
+    }
+    header.hero h1 .accent { color: var(--accent); }
+    header.hero p.tagline {
+      margin: 12px 0 24px;
+      font-size: 18px;
+      color: var(--fg-soft);
+      max-width: 680px;
+    }
+    .ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--fg);
+    }
+    .btn:hover { text-decoration: none; border-color: var(--accent); }
+    .btn.primary {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+    .btn.primary:hover { filter: brightness(0.95); }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 12px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      color: var(--fg-soft);
+      border: 1px solid var(--border);
+    }
+    .badge.accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: var(--accent-soft);
+    }
+
+    /* Sections */
+    main section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    main section:last-of-type { border-bottom: none; }
+    main h2 {
+      margin: 0 0 16px;
+      font-size: 26px;
+      letter-spacing: -0.3px;
+    }
+    main p { margin: 0 0 14px; }
+    main p.lead { font-size: 17px; color: var(--fg-soft); max-width: 720px; }
+
+    .audience {
+      margin: 8px 0 0 0;
+      padding: 0 0 0 20px;
+      color: var(--fg-soft);
+    }
+    .audience li { margin-bottom: 6px; }
+
+    /* Skill groups */
+    .groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .group {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      background: var(--bg);
+      box-shadow: var(--shadow);
+      border-top: 3px solid var(--accent);
+    }
+    .group h3 {
+      margin: 0 0 4px;
+      font-size: 16px;
+    }
+    .group .group-count {
+      font-size: 12px;
+      color: var(--fg-soft);
+      margin-bottom: 12px;
+    }
+    .skill {
+      display: block;
+      padding: 8px 10px;
+      margin: 6px 0;
+      border-radius: 6px;
+      background: var(--bg-soft);
+      color: var(--fg);
+      border: 1px solid transparent;
+    }
+    .skill:hover {
+      text-decoration: none;
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .skill-name { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; color: var(--accent); }
+    .skill-desc { display: block; margin-top: 2px; font-size: 13px; color: var(--fg-soft); }
+
+    /* Code blocks */
+    pre {
+      background: var(--code-bg);
+      padding: 14px 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+    .selector {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 16px;
+    }
+    .selector li {
+      padding: 6px 0;
+      color: var(--fg-soft);
+    }
+    .selector code { color: var(--accent); background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; font-size: 12.5px; }
+
+    /* Workflows */
+    .flow {
+      margin: 0 0 18px;
+    }
+    .flow h3 { margin: 0 0 8px; font-size: 15px; }
+    .flow .chain {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .flow .chain a {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      color: var(--accent);
+    }
+    .flow .chain a:hover { text-decoration: none; border-color: var(--accent); background: var(--accent-soft); }
+    .flow .chain .arrow { color: var(--fg-soft); align-self: center; padding: 0 2px; font-size: 12px; }
+
+    /* Footer */
+    footer {
+      padding: 28px 0 56px;
+      color: var(--fg-soft);
+      font-size: 14px;
+    }
+    footer .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 12px;
+    }
+    footer p { margin: 0; }
+
+    @media (max-width: 600px) {
+      header.hero { padding: 40px 0 28px; }
+      header.hero h1 { font-size: 30px; }
+      header.hero p.tagline { font-size: 16px; }
+      main section { padding: 36px 0; }
+      main h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <h1><span class="accent">dev-workflow-kit</span></h1>
+    <p class="tagline">21 lifecycle skills for Claude Code / Codex / compatible agents — planning to delivery.</p>
+    <div class="ctas">
+      <a class="btn primary" href="https://github.com/motao123/dev-workflow-kit">View on GitHub</a>
+      <a class="btn" href="#quick-start">Quick Start</a>
+      <a class="btn" href="https://github.com/motao123/dev-workflow-kit/releases/latest">Latest release</a>
+    </div>
+    <div class="badges" aria-label="project facts">
+      <span class="badge accent">21 skills</span>
+      <span class="badge">MIT licensed</span>
+      <span class="badge">Markdown-first</span>
+      <span class="badge">v1.1.0</span>
+      <span class="badge">CI: enabled</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="what">
+  <div class="container">
+    <h2>What it is</h2>
+    <p class="lead">
+      <strong>dev-workflow-kit</strong> is a standalone, markdown-first collection of software-delivery workflow skills.
+      It is not a code generator and not a writing-style guide — it is a router that helps Claude Code / Codex /
+      compatible agents choose the right delivery skill for the task in front of them.
+    </p>
+    <p class="lead">
+      面向 Claude Code / Codex / 兼容 Agent，把开发流程中真正反复出现的环节拆成可调用的独立 skill。
+    </p>
+    <ul class="audience">
+      <li>Engineers using AI agents through real delivery workflows, not just code completion.</li>
+      <li>Teams that want explicit boundaries for planning, debugging, review, security, rollout, and post-incident work.</li>
+      <li>Operators who treat skill packs as living docs, with evals and prompt examples.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2>21 skills, grouped by lifecycle</h2>
+    <p class="lead">Each skill is its own folder on GitHub with <code>SKILL.md</code>, README, evals, and prompt examples.</p>
+
+    <div class="groups">
+      <article class="group">
+        <h3>Plan &amp; scope</h3>
+        <div class="group-count">4 skills</div>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/planning">
+          <span class="skill-name">planning</span>
+          <span class="skill-desc">Turn fuzzy requests into a concrete implementation plan with risks and acceptance criteria.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/test-strategy-gap-review">
+          <span class="skill-name">test-strategy-gap-review</span>
+          <span class="skill-desc">Decide whether current verification is sufficient and what coverage is missing.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/change-impact-analysis">
+          <span class="skill-name">change-impact-analysis</span>
+          <span class="skill-desc">Map blast radius across modules, clients, configs, and verification surfaces.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/architecture-refactor-guidance">
+          <span class="skill-name">architecture-refactor-guidance</span>
+          <span class="skill-desc">Choose safe boundaries and refactor sequencing before implementation.</span>
+        </a>
+      </article>
+
+      <article class="group">
+        <h3>Diagnose</h3>
+        <div class="group-count">4 skills</div>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/systematic-debugging">
+          <span class="skill-name">systematic-debugging</span>
+          <span class="skill-desc">Reproduce, narrow, and root-cause unclear bugs before changing code.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/incident-observability-triage">
+          <span class="skill-name">incident-observability-triage</span>
+          <span class="skill-desc">Triage live incidents starting from alerts, logs, metrics, or traces.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/performance-investigation">
+          <span class="skill-name">performance-investigation</span>
+          <span class="skill-desc">Narrow latency, throughput, or resource regressions before optimizing.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/fix-ci">
+          <span class="skill-name">fix-ci</span>
+          <span class="skill-desc">Read the earliest failure, classify, and produce a minimal repair path.</span>
+        </a>
+      </article>
+
+      <article class="group">
+        <h3>Pre-merge control</h3>
+        <div class="group-count">7 skills</div>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/review-address-comments">
+          <span class="skill-name">review-address-comments</span>
+          <span class="skill-desc">Group, classify, and resolve PR review comments with a clear summary.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/browser-verification">
+          <span class="skill-name">browser-verification</span>
+          <span class="skill-desc">Smoke-test UI behavior with explicit observable evidence.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/security-review">
+          <span class="skill-name">security-review</span>
+          <span class="skill-desc">Identify trust-boundary, abuse-case, and unsafe-default risks.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/dependency-compliance-audit">
+          <span class="skill-name">dependency-compliance-audit</span>
+          <span class="skill-desc">Review third-party package risk, license, and supply-chain fit.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/api-contract-compatibility-review">
+          <span class="skill-name">api-contract-compatibility-review</span>
+          <span class="skill-desc">Check breaking changes, versioning, and migration guidance for consumers.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/cost-impact-review">
+          <span class="skill-name">cost-impact-review</span>
+          <span class="skill-desc">Estimate infra and per-request cost regressions before merge.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/data-quality-audit">
+          <span class="skill-name">data-quality-audit</span>
+          <span class="skill-desc">Audit runtime data correctness, freshness, completeness, and integrity.</span>
+        </a>
+      </article>
+
+      <article class="group">
+        <h3>Release &amp; delivery</h3>
+        <div class="group-count">6 skills</div>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/release-rollout-strategy">
+          <span class="skill-name">release-rollout-strategy</span>
+          <span class="skill-desc">Design phased, canary, or flag-gated rollout with checkpoints and rollback rules.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/environment-config-audit">
+          <span class="skill-name">environment-config-audit</span>
+          <span class="skill-desc">Catch config drift, env mismatch, and deploy-time assumption risk.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/data-migration-safety-review">
+          <span class="skill-name">data-migration-safety-review</span>
+          <span class="skill-desc">Review schema migrations, backfills, and coexistence windows for safety.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/release-incident-postmortem">
+          <span class="skill-name">release-incident-postmortem</span>
+          <span class="skill-desc">Run a structured retrospective after an incident has been mitigated.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/ship-readiness">
+          <span class="skill-name">ship-readiness</span>
+          <span class="skill-desc">Final gate: blockers, verification status, and risk summary before merge or release.</span>
+        </a>
+        <a class="skill" href="https://github.com/motao123/dev-workflow-kit/tree/main/docs-writer">
+          <span class="skill-name">docs-writer</span>
+          <span class="skill-desc">Produce README, migration notes, release notes, and usage docs grounded in real code.</span>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="quick-start">
+  <div class="container">
+    <h2>Quick Start</h2>
+    <p class="lead">Drop the repository into your skills directory and call any skill by name.</p>
+
+    <p><strong>Install path</strong></p>
+<pre><code>~/.codex/skills/dev-workflow-kit</code></pre>
+
+    <p><strong>Or clone directly</strong></p>
+<pre><code>git clone https://github.com/motao123/dev-workflow-kit ~/.codex/skills/dev-workflow-kit</code></pre>
+
+    <p><strong>Pick by current bottleneck, not the final goal</strong></p>
+    <ul class="selector">
+      <li>Stuck on "what should we build?" → <code>planning</code></li>
+      <li>Stuck on "what does this change touch?" → <code>change-impact-analysis</code></li>
+      <li>Stuck on "why is this failing?" → <code>systematic-debugging</code></li>
+      <li>Stuck on "is this ready to ship?" → <code>ship-readiness</code></li>
+    </ul>
+
+    <p><strong>First call</strong></p>
+<pre><code>用 dev-workflow-kit 的 planning 先把这个需求拆成实现步骤、风险和验证方案。</code></pre>
+  </div>
+</section>
+
+<section id="workflows">
+  <div class="container">
+    <h2>Featured workflows</h2>
+    <p class="lead">Recommended sequences for common delivery situations. Each chip links to the matching skill folder.</p>
+
+    <div class="flow">
+      <h3>Feature development</h3>
+      <div class="chain">
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/planning">planning</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/test-strategy-gap-review">test-strategy-gap-review</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/change-impact-analysis">change-impact-analysis</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/review-address-comments">review-address-comments</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/browser-verification">browser-verification</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/ship-readiness">ship-readiness</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/docs-writer">docs-writer</a>
+      </div>
+    </div>
+
+    <div class="flow">
+      <h3>Complex refactor</h3>
+      <div class="chain">
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/planning">planning</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/architecture-refactor-guidance">architecture-refactor-guidance</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/change-impact-analysis">change-impact-analysis</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/test-strategy-gap-review">test-strategy-gap-review</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/api-contract-compatibility-review">api-contract-compatibility-review</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/ship-readiness">ship-readiness</a>
+      </div>
+    </div>
+
+    <div class="flow">
+      <h3>Production incident</h3>
+      <div class="chain">
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/incident-observability-triage">incident-observability-triage</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/performance-investigation">performance-investigation</a><span class="arrow">/</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/systematic-debugging">systematic-debugging</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/release-rollout-strategy">release-rollout-strategy</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/ship-readiness">ship-readiness</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/release-incident-postmortem">release-incident-postmortem</a>
+      </div>
+    </div>
+
+    <div class="flow">
+      <h3>Pre-release</h3>
+      <div class="chain">
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/environment-config-audit">environment-config-audit</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/data-migration-safety-review">data-migration-safety-review</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/data-quality-audit">data-quality-audit</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/dependency-compliance-audit">dependency-compliance-audit</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/cost-impact-review">cost-impact-review</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/security-review">security-review</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/release-rollout-strategy">release-rollout-strategy</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/ship-readiness">ship-readiness</a><span class="arrow">→</span>
+        <a href="https://github.com/motao123/dev-workflow-kit/tree/main/docs-writer">docs-writer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="container">
+    <h2>Roadmap</h2>
+    <p class="lead">v1 – v6 shipped. 21 skills today.</p>
+    <p>
+      Full version history lives in
+      <a href="https://github.com/motao123/dev-workflow-kit/blob/main/CHANGELOG.md">CHANGELOG.md</a>.
+      Latest tagged release: <a href="https://github.com/motao123/dev-workflow-kit/releases/tag/v1.1.0">v1.1.0</a>.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="https://github.com/motao123/dev-workflow-kit#readme">README</a>
+      <a href="https://github.com/motao123/dev-workflow-kit/releases">Releases</a>
+      <a href="https://github.com/motao123/dev-workflow-kit/blob/main/CHANGELOG.md">CHANGELOG</a>
+      <a href="https://github.com/motao123/dev-workflow-kit/issues">Issues</a>
+      <a href="https://github.com/motao123/dev-workflow-kit/blob/main/CONTRIBUTING.md">Contributing</a>
+      <a href="https://github.com/motao123/dev-workflow-kit/blob/main/LICENSE">License (MIT)</a>
+    </div>
+    <p>© 2026 陌涛 · MIT licensed · Hosted on GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll already handled by CSS scroll-behavior; this script
+  // ensures focus moves to the target section for accessibility.
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
