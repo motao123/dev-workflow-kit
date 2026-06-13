@@ -7,7 +7,7 @@
 ![Evals Included](https://img.shields.io/badge/Evals-Included-orange.svg)
 ![Examples Included](https://img.shields.io/badge/Examples-Included-1f6feb.svg)
 
-> Homepage: <https://motao123.github.io/dev-workflow-kit/>
+> English: [README.en.md](./README.en.md) · Homepage: <https://motao123.github.io/dev-workflow-kit/>
 
 一个面向 Claude Code / Codex / 兼容 Agent 的 **软件交付全流程 skill 集合**。
 
