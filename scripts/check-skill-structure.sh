@@ -12,13 +12,14 @@
 #   evals
 #   references
 #   scripts
+#   docs
 
 set -euo pipefail
 
 repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$repo_root"
 
-ignore_dirs=(".git" ".github" "evals" "references" "scripts")
+ignore_dirs=(".git" ".github" "evals" "references" "scripts" "docs")
 
 is_ignored() {
   local name="$1"
