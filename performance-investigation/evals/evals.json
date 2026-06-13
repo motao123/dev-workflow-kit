@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use performance-investigation to figure out why this endpoint got slower after the last change.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use performance-investigation because release confidence is blocked by latency regression.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Review this package license before adoption.",
+    "should_trigger": false
+  }
+]

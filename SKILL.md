@@ -52,7 +52,20 @@ Choose this for:
 Expected output:
 - a concrete implementation plan or task breakdown
 
-### 2. `systematic-debugging`
+### 2. `test-strategy-gap-review`
+Use when the main uncertainty is whether current verification is sufficient.
+
+Choose this for:
+- missing test coverage
+- weak regression protection
+- uncertain verification mix
+- choosing between unit, integration, contract, browser, or smoke layers
+- deciding the smallest high-value test additions
+
+Expected output:
+- missing test layers, blind spots, and highest-value coverage additions
+
+### 3. `systematic-debugging`
 Use when the fix is not obvious.
 
 Choose this for:
@@ -64,7 +77,7 @@ Choose this for:
 Expected output:
 - reproduction steps, hypotheses, narrowed scope, likely root cause, and next fix path
 
-### 3. `fix-ci`
+### 4. `fix-ci`
 Use when the branch is blocked by automation.
 
 Choose this for:
@@ -75,7 +88,7 @@ Choose this for:
 Expected output:
 - earliest failing step, root-cause classification, and minimal repair plan
 
-### 4. `review-address-comments`
+### 5. `review-address-comments`
 Use when collaboration is the bottleneck.
 
 Choose this for:
@@ -86,7 +99,7 @@ Choose this for:
 Expected output:
 - grouped comments, action plan, and resolution summary
 
-### 5. `browser-verification`
+### 6. `browser-verification`
 Use when correctness must be seen, not inferred.
 
 Choose this for:
@@ -98,7 +111,7 @@ Choose this for:
 Expected output:
 - browser test steps, observations, screenshots or logs when available, and pass/fail evidence
 
-### 6. `security-review`
+### 7. `security-review`
 Use when a change crosses trust boundaries.
 
 Choose this for:
@@ -110,7 +123,7 @@ Choose this for:
 Expected output:
 - risk list, severity, remediation guidance, and verification ideas
 
-### 7. `ship-readiness`
+### 8. `ship-readiness`
 Use when the change is almost done.
 
 Choose this for:
@@ -122,7 +135,7 @@ Choose this for:
 Expected output:
 - ship checklist, open risks, verification summary, and next actions
 
-### 8. `docs-writer`
+### 9. `docs-writer`
 Use when knowledge needs to be captured for others.
 
 Choose this for:
@@ -135,7 +148,7 @@ Choose this for:
 Expected output:
 - documentation draft grounded in the current code and behavior
 
-### 9. `change-impact-analysis`
+### 10. `change-impact-analysis`
 Use when the biggest question is what a change will affect.
 
 Choose this for:
@@ -148,7 +161,7 @@ Choose this for:
 Expected output:
 - impacted surfaces, likely regressions, and verification focus
 
-### 10. `architecture-refactor-guidance`
+### 11. `architecture-refactor-guidance`
 Use when the core question is about structure, boundaries, or safe refactor sequencing.
 
 Choose this for:
@@ -161,7 +174,7 @@ Choose this for:
 Expected output:
 - structural assessment, refactor order, risk points, and preservation strategy
 
-### 11. `incident-observability-triage`
+### 12. `incident-observability-triage`
 Use when the investigation starts from production-style signals.
 
 Choose this for:
@@ -174,7 +187,7 @@ Choose this for:
 Expected output:
 - impact summary, likely failure surface, mitigation direction, and next investigation steps
 
-### 12. `dependency-compliance-audit`
+### 13. `dependency-compliance-audit`
 Use when the main concern is third-party package risk or policy fit.
 
 Choose this for:
@@ -187,7 +200,7 @@ Choose this for:
 Expected output:
 - dependency risk summary, compliance concerns, and recommended next actions
 
-### 13. `api-contract-compatibility-review`
+### 14. `api-contract-compatibility-review`
 Use when interface compatibility is the main risk.
 
 Choose this for:
@@ -200,7 +213,7 @@ Choose this for:
 Expected output:
 - compatibility risks, breaking surfaces, and migration guidance
 
-### 14. `release-rollout-strategy`
+### 15. `release-rollout-strategy`
 Use when the code may be ready but the release shape is not.
 
 Choose this for:
@@ -213,11 +226,38 @@ Choose this for:
 Expected output:
 - rollout plan, checkpoints, rollback rules, and release sequence
 
+### 16. `performance-investigation`
+Use when slowness or resource pressure is the core problem.
+
+Choose this for:
+- latency regressions
+- throughput bottlenecks
+- CPU or memory pressure
+- render slowness or heavy queries
+- narrowing likely performance hotspots
+
+Expected output:
+- likely bottleneck class, hotspots, and next measurement or mitigation steps
+
+### 17. `environment-config-audit`
+Use when environment parity or configuration assumptions are the real risk.
+
+Choose this for:
+- config drift
+- env var or secret mismatch
+- feature flag rollout assumptions
+- dangerous defaults
+- deploy-time configuration risk
+
+Expected output:
+- parity risks, config blockers, and recommended next checks
+
 ## Tie-Breaker Rules
 
 When categories overlap:
 
 - `planning` beats implementation-adjacent skills when scope or sequencing is still unclear.
+- `test-strategy-gap-review` beats generic planning when the main question is whether verification is sufficient.
 - `change-impact-analysis` beats implementation planning when the main uncertainty is breadth of consequences.
 - `fix-ci` beats `systematic-debugging` when the failure is clearly pipeline-first.
 - `systematic-debugging` beats `fix-ci` when root cause is still unknown and not clearly CI-specific.
@@ -228,12 +268,15 @@ When categories overlap:
 - `dependency-compliance-audit` beats `security-review` when the main concern is third-party package risk, license, or policy fit.
 - `api-contract-compatibility-review` beats generic impact analysis when the question is specifically about compatibility for existing consumers.
 - `release-rollout-strategy` beats `ship-readiness` when the main uncertainty is how to release, not whether the work is complete.
+- `performance-investigation` beats `systematic-debugging` when latency, throughput, resource usage, or slowness are the core symptom.
+- `environment-config-audit` beats `fix-ci` when the issue is environment parity, secrets, flags, or deploy-time assumptions rather than a single pipeline failure.
 
 ## Handoff Logic
 
 Use these common transitions:
 
 - `planning` -> active implementation workflow
+- `test-strategy-gap-review` -> active implementation workflow, `change-impact-analysis`, or `ship-readiness`
 - `change-impact-analysis` -> `planning`, active implementation workflow, or `release-rollout-strategy`
 - `architecture-refactor-guidance` -> active implementation workflow
 - `systematic-debugging` -> active implementation workflow or `fix-ci`
@@ -242,6 +285,8 @@ Use these common transitions:
 - `api-contract-compatibility-review` -> `change-impact-analysis`, `release-rollout-strategy`, or `docs-writer`
 - `dependency-compliance-audit` -> `security-review`, `docs-writer`, or `ship-readiness`
 - `release-rollout-strategy` -> `ship-readiness`, `incident-observability-triage`, or `docs-writer`
+- `performance-investigation` -> `incident-observability-triage`, `systematic-debugging`, or active implementation workflow
+- `environment-config-audit` -> `release-rollout-strategy`, `ship-readiness`, or `docs-writer`
 - `docs-writer` only after behavior is stable enough to document
 
 ## Coordination Patterns
@@ -249,23 +294,27 @@ Use these common transitions:
 Typical flow:
 
 1. Use `planning` when requirements or scope are unclear.
-2. Use `change-impact-analysis` when the first question is what else the change touches.
-3. Move into the active coding workflow for implementation and verification discipline.
-4. Use `systematic-debugging` if execution stalls on unclear failures.
-5. Use `fix-ci` if local success does not match pipeline status.
-6. Use `review-address-comments` after review feedback arrives.
-7. Use `browser-verification`, `security-review`, or `ship-readiness` before claiming completion when the task needs them.
-8. Use `architecture-refactor-guidance` when the implementation question is really about structure.
-9. Use `incident-observability-triage` when operational evidence drives the investigation.
-10. Use `dependency-compliance-audit` when third-party package risk or policy fit is the blocker.
-11. Use `api-contract-compatibility-review` when consumer compatibility is the main risk.
-12. Use `release-rollout-strategy` when rollout shape, monitoring, or rollback design is the main question.
-13. Use `docs-writer` to capture user-facing or developer-facing knowledge.
+2. Use `test-strategy-gap-review` when the main concern is whether verification is sufficient.
+3. Use `change-impact-analysis` when the first question is what else the change touches.
+4. Move into the active coding workflow for implementation and verification discipline.
+5. Use `systematic-debugging` if execution stalls on unclear failures.
+6. Use `fix-ci` if local success does not match pipeline status.
+7. Use `review-address-comments` after review feedback arrives.
+8. Use `browser-verification`, `security-review`, or `ship-readiness` before claiming completion when the task needs them.
+9. Use `architecture-refactor-guidance` when the implementation question is really about structure.
+10. Use `incident-observability-triage` when operational evidence drives the investigation.
+11. Use `dependency-compliance-audit` when third-party package risk or policy fit is the blocker.
+12. Use `api-contract-compatibility-review` when consumer compatibility is the main risk.
+13. Use `release-rollout-strategy` when rollout shape, monitoring, or rollback design is the main question.
+14. Use `performance-investigation` when slowness or resource pressure is the real issue.
+15. Use `environment-config-audit` when config parity or deploy-time assumptions are the real risk.
+16. Use `docs-writer` to capture user-facing or developer-facing knowledge.
 
 ## Invocation Examples
 
 - "Use dev-workflow-kit to decide whether this task needs planning, debugging, CI triage, or release checks."
 - "Use the planning skill from dev-workflow-kit before we start implementation."
+- "Use test-strategy-gap-review from dev-workflow-kit to tell me what coverage is missing before merge."
 - "Use change-impact-analysis from dev-workflow-kit to show which modules and clients this change could affect."
 - "Use systematic-debugging from dev-workflow-kit to reproduce and narrow this flaky test failure."
 - "Use fix-ci from dev-workflow-kit to handle this pipeline failure."
@@ -275,3 +324,5 @@ Typical flow:
 - "Use dependency-compliance-audit from dev-workflow-kit to review whether this new package is safe to adopt."
 - "Use api-contract-compatibility-review from dev-workflow-kit to check whether this endpoint change breaks old clients."
 - "Use release-rollout-strategy from dev-workflow-kit to design a safer rollout for this release."
+- "Use performance-investigation from dev-workflow-kit to narrow this latency regression before optimizing."
+- "Use environment-config-audit from dev-workflow-kit to compare staging and prod assumptions before release."

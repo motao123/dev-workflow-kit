@@ -3,6 +3,7 @@
 | Problem type | Recommended skill | Expected output | Use before / after |
 | --- | --- | --- | --- |
 | 需求不清、范围模糊 | `planning` | 任务拆解、风险、验收标准、验证方案 | Before implementation |
+| 测试覆盖是否足够不清楚 | `test-strategy-gap-review` | 测试盲区、缺失层、最小高价值补测建议 | Before merge / before release |
 | 改动影响范围不清 | `change-impact-analysis` | 影响面、回归区域、验证重点 | Before or alongside implementation |
 | 复杂 bug、根因不明 | `systematic-debugging` | 复现路径、假设、根因判断、下一步修复方向 | Before or alongside implementation |
 | CI 红灯、流水线挂掉 | `fix-ci` | 最早失败点、分类、最小修复方案 | After local changes / before merge |
@@ -14,20 +15,25 @@
 | 第三方依赖风险、license、合规、供应链评估 | `dependency-compliance-audit` | 依赖风险摘要、合规问题、建议动作 | Before adoption / before release |
 | API / schema / event 契约兼容性问题 | `api-contract-compatibility-review` | breaking changes、兼容性风险、迁移建议 | Before release / before client impact |
 | rollout 形态、checkpoint、回滚设计 | `release-rollout-strategy` | rollout 方案、checkpoint、rollback 条件 | Before release |
+| 延迟、吞吐、CPU、内存等性能问题 | `performance-investigation` | 性能瓶颈类型、热点、下一步测量或优化方向 | During perf triage / before optimization |
+| 环境一致性、配置漂移、flags、secrets 风险 | `environment-config-audit` | parity 风险、config blocker、建议检查项 | Before release / before rollout |
 | 准备 merge / release | `ship-readiness` | 发布前检查表、剩余 blocker、风险摘要 | Near completion |
 | 文档和知识沉淀 | `docs-writer` | README / migration / release note / 示例草稿 | After implementation |
 
 ## Recommended flow
 
 1. `planning`
-2. `change-impact-analysis` when the first question is what the change touches
-3. `architecture-refactor-guidance` when structure is the real problem
-4. active implementation workflow
-5. `systematic-debugging` when needed
-6. `incident-observability-triage` when alerts, logs, or metrics drive the investigation
-7. `fix-ci` when automation disagrees
-8. `review-address-comments`
-9. `browser-verification` / `security-review` / `dependency-compliance-audit` / `api-contract-compatibility-review` when applicable
-10. `release-rollout-strategy` when release shape is still open
-11. `ship-readiness`
-12. `docs-writer`
+2. `test-strategy-gap-review` when verification sufficiency is the main question
+3. `change-impact-analysis` when the first question is what the change touches
+4. `architecture-refactor-guidance` when structure is the real problem
+5. active implementation workflow
+6. `systematic-debugging` when needed
+7. `incident-observability-triage` when alerts, logs, or metrics drive the investigation
+8. `fix-ci` when automation disagrees
+9. `review-address-comments`
+10. `browser-verification` / `security-review` / `dependency-compliance-audit` / `api-contract-compatibility-review` when applicable
+11. `performance-investigation` when latency or resource pressure is the core issue
+12. `environment-config-audit` when config parity is still open
+13. `release-rollout-strategy` when release shape is still open
+14. `ship-readiness`
+15. `docs-writer`

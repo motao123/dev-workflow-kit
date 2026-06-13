@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use test-strategy-gap-review to tell me what coverage is missing before we merge this change.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use test-strategy-gap-review to decide whether this needs unit, integration, or browser checks.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Fix this CI test failure directly.",
+    "should_trigger": false
+  }
+]

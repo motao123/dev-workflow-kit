@@ -8,6 +8,10 @@
     "should_trigger": true
   },
   {
+    "prompt": "Use test-strategy-gap-review from dev-workflow-kit to tell me what coverage is missing before we merge this change.",
+    "should_trigger": true
+  },
+  {
     "prompt": "Use change-impact-analysis from dev-workflow-kit to show which modules and clients this change could affect.",
     "should_trigger": true
   },
@@ -29,6 +33,14 @@
   },
   {
     "prompt": "Use release-rollout-strategy from dev-workflow-kit and give me checkpoints, rollback triggers, and rollout sequencing.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use performance-investigation from dev-workflow-kit to narrow this latency regression before we optimize.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use environment-config-audit from dev-workflow-kit to compare staging and prod assumptions before release.",
     "should_trigger": true
   },
   {

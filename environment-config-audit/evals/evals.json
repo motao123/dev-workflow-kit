@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use environment-config-audit before release to compare local, staging, and prod assumptions.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use environment-config-audit to check whether secrets, flags, and defaults are wired consistently.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Why is this endpoint slow after the last deploy?",
+    "should_trigger": false
+  }
+]

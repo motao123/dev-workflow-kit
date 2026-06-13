@@ -59,6 +59,24 @@ These were chosen because they extend the pack into three common standalone work
 - deciding how a release should be rolled out
 - protecting compatibility at integration boundaries
 
+## V4 expansion rationale
+
+The v4 expansion focuses on delivery confidence beyond implementation correctness.
+
+The 3 added v4 skills are:
+
+1. `test-strategy-gap-review` for deciding whether current verification is sufficient.
+2. `performance-investigation` for narrowing performance bottlenecks before optimization work begins.
+3. `environment-config-audit` for catching config drift, env mismatch, and deploy-time assumption risk.
+
+These were chosen because they extend the pack into three common workflow gaps that frequently block shipping confidence:
+
+- uncertainty about missing regression protection
+- uncertainty about where performance pain really comes from
+- uncertainty about whether environments are aligned enough to release safely
+
+`data-migration-safety-review` remains a good future addition, but was deferred to keep v4 tighter and reduce overlap with existing API compatibility and rollout skills.
+
 ## Packaging choice
 
 This pack uses a lightweight local structure:
