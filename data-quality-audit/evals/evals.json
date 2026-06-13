@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use data-quality-audit from dev-workflow-kit to assess freshness, completeness, and correctness of this dataset.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use data-quality-audit to check whether this table has duplicate or orphaned rows before we expose it downstream.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Plan a schema migration to add a new column.",
+    "should_trigger": false
+  }
+]

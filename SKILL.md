@@ -265,6 +265,45 @@ Choose this for:
 Expected output:
 - migration risks, rollback limits, and safest staged path
 
+### 19. `release-incident-postmortem`
+Use when an incident has already been mitigated and the team needs structured retrospective work.
+
+Choose this for:
+- post-incident timeline and impact reconstruction
+- root cause and contributing factors
+- mitigation steps actually taken
+- follow-up actions, owners, and prevention work
+- formal postmortem documentation
+
+Expected output:
+- timeline, impact, root cause, mitigations, follow-up actions, and recommended preventive changes
+
+### 20. `cost-impact-review`
+Use when a change may increase infra or runtime cost rather than break correctness.
+
+Choose this for:
+- new queries, API calls, or background work that scales per-request
+- caching, batching, or pagination changes
+- third-party SaaS or paid API usage growth
+- log, trace, or metric volume regressions
+- cost regression checks before merge or rollout
+
+Expected output:
+- affected cost drivers, likely cost direction, risk hotspots, recommended optimizations, and verification plan
+
+### 21. `data-quality-audit`
+Use when existing runtime data may be wrong, stale, incomplete, or inconsistent.
+
+Choose this for:
+- suspect values in a dataset, table, or event stream
+- nullability, uniqueness, foreign-key, or enum integrity concerns
+- freshness or completeness questions
+- duplicate, drifted, or orphaned record suspicion
+- data-trust pass before release or downstream reuse
+
+Expected output:
+- dataset reviewed, quality dimensions, key anomalies and severity, recommended remediation, and monitoring suggestions
+
 ## Tie-Breaker Rules
 
 When categories overlap:
@@ -284,6 +323,9 @@ When categories overlap:
 - `performance-investigation` beats `systematic-debugging` when latency, throughput, resource usage, or slowness are the core symptom.
 - `environment-config-audit` beats `fix-ci` when the issue is environment parity, secrets, flags, or deploy-time assumptions rather than a single pipeline failure.
 - `data-migration-safety-review` beats generic rollout planning when persistent data transition risk is the main concern.
+- `release-incident-postmortem` beats `incident-observability-triage` when the incident is already mitigated and the focus is structured retrospective.
+- `cost-impact-review` beats `dependency-compliance-audit` when the main question is unit economics or infra cost regression rather than license or supply-chain fit.
+- `data-quality-audit` beats `data-migration-safety-review` when the concern is correctness or freshness of existing data, not the migration itself.
 
 ## Handoff Logic
 
@@ -302,6 +344,9 @@ Use these common transitions:
 - `performance-investigation` -> `incident-observability-triage`, `systematic-debugging`, or active implementation workflow
 - `environment-config-audit` -> `release-rollout-strategy`, `ship-readiness`, or `docs-writer`
 - `data-migration-safety-review` -> `api-contract-compatibility-review`, `release-rollout-strategy`, or `docs-writer`
+- `release-incident-postmortem` -> `docs-writer`, `release-rollout-strategy`, or `systematic-debugging`
+- `cost-impact-review` -> `architecture-refactor-guidance`, `release-rollout-strategy`, or `ship-readiness`
+- `data-quality-audit` -> `data-migration-safety-review`, `systematic-debugging`, or `docs-writer`
 - `docs-writer` only after behavior is stable enough to document
 
 ## Coordination Patterns
@@ -324,7 +369,10 @@ Typical flow:
 14. Use `performance-investigation` when slowness or resource pressure is the real issue.
 15. Use `environment-config-audit` when config parity or deploy-time assumptions are the real risk.
 16. Use `data-migration-safety-review` when persistent data safety is the main release concern.
-17. Use `docs-writer` to capture user-facing or developer-facing knowledge.
+17. Use `release-incident-postmortem` after an incident has been mitigated and a structured retrospective is needed.
+18. Use `cost-impact-review` when infra or per-request cost regression is the main risk.
+19. Use `data-quality-audit` when existing runtime data correctness or freshness is in question.
+20. Use `docs-writer` to capture user-facing or developer-facing knowledge.
 
 ## Invocation Examples
 
@@ -343,3 +391,6 @@ Typical flow:
 - "Use performance-investigation from dev-workflow-kit to narrow this latency regression before optimizing."
 - "Use environment-config-audit from dev-workflow-kit to compare staging and prod assumptions before release."
 - "Use data-migration-safety-review from dev-workflow-kit before we run this schema backfill in production."
+- "Use release-incident-postmortem from dev-workflow-kit to run a structured postmortem on this outage now that mitigation is complete."
+- "Use cost-impact-review from dev-workflow-kit to check whether this change increases infra or per-request cost."
+- "Use data-quality-audit from dev-workflow-kit to assess freshness, completeness, and correctness of this dataset."

@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use release-incident-postmortem from dev-workflow-kit to run a structured postmortem on this outage now that mitigation is complete.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use release-incident-postmortem to capture timeline, impact, and follow-up actions for last night's incident.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Triage this alert that just started firing.",
+    "should_trigger": false
+  }
+]

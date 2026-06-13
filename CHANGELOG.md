@@ -6,6 +6,17 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 
 ## [Unreleased]
 
+### Added — v6: Postmortem / cost / data quality
+- `release-incident-postmortem`
+- `cost-impact-review`
+- `data-quality-audit`
+
+### Changed
+- Skill count bumped to 21 across README badge, hero bullet, and roadmap.
+- Root router (`SKILL.md`) extended with 3 new sections, tie-breakers, handoff rules, coordination patterns, and invocation examples.
+- `references/skill-catalog.md` and `references/design-notes.md` updated with v6 rationale.
+- Root `evals/evals.json` extended with 3 v6 trigger prompts.
+
 ## [1.0.0] - 2026-06-13
 
 First public release.

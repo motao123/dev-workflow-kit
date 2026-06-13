@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/motao123/dev-workflow-kit/actions/workflows/ci.yml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![Skills: 18](https://img.shields.io/badge/Skills-18-6f42c1.svg)
+![Skills: 21](https://img.shields.io/badge/Skills-21-6f42c1.svg)
 ![Branch: main](https://img.shields.io/badge/Branch-main-2ea44f.svg)
 ![Evals Included](https://img.shields.io/badge/Evals-Included-orange.svg)
 ![Examples Included](https://img.shields.io/badge/Examples-Included-1f6feb.svg)
@@ -11,7 +11,7 @@
 
 它不是“写代码技巧合集”，而是把开发过程中真正反复出现的环节拆成独立 skill：**规划、影响分析、重构判断、调试、CI、评审处理、浏览器验证、安全检查、依赖审计、发布策略、发版前检查、文档沉淀**。
 
-- 覆盖从需求规划到上线交付的 **18 个 workflow skills**
+- 覆盖从需求规划到上线交付的 **21 个 workflow skills**
 - 面向 **Claude Code / Codex / 兼容 Agent** 的实际开发流程，而不只是“写代码”
 - 每个 skill 都带有 **README、eval 样例和 prompt 示例**
 
@@ -73,11 +73,14 @@
 - `security-review`
 - `dependency-compliance-audit`
 - `api-contract-compatibility-review`
+- `cost-impact-review`
+- `data-quality-audit`
 
 ### 4. 让上线和交付更稳
 - `release-rollout-strategy`
 - `environment-config-audit`
 - `data-migration-safety-review`
+- `release-incident-postmortem`
 - `ship-readiness`
 - `docs-writer`
 
@@ -110,6 +113,8 @@ Review / Verification
         +--> security-review
         +--> dependency-compliance-audit
         +--> api-contract-compatibility-review
+        +--> cost-impact-review
+        +--> data-quality-audit
         |
         v
 Release / Delivery
@@ -117,6 +122,7 @@ Release / Delivery
         +--> data-migration-safety-review
         +--> release-rollout-strategy
         +--> ship-readiness
+        +--> release-incident-postmortem
         +--> docs-writer
 ```
 
@@ -142,6 +148,9 @@ Release / Delivery
 | `performance-investigation` | 性能瓶颈排查 | 瓶颈类型、热点、下一步测量方向 |
 | `environment-config-audit` | 环境一致性和配置漂移审计 | parity 风险、config blocker、建议检查项 |
 | `data-migration-safety-review` | 数据迁移和 backfill 安全审查 | 迁移风险、回滚限制、验证 checkpoint |
+| `release-incident-postmortem` | 事故缓解后做结构化复盘 | 时间线、影响、根因、改进项与负责人 |
+| `cost-impact-review` | 评估改动是否会让运行成本明显上涨 | 成本因子、风险点、优化与验证建议 |
+| `data-quality-audit` | 运行期数据正确性、新鲜度、完整性审查 | 数据异常、严重度、修复与监控建议 |
 | `ship-readiness` | merge / release 前总检查 | blocker、done/missing、风险总结 |
 | `docs-writer` | README / migration / release note / 示例 | 文档草稿、说明结构、补齐建议 |
 
@@ -166,8 +175,11 @@ Release / Delivery
 - 现在卡在“CI 不过” -> `fix-ci`
 - 现在卡在“性能为什么变差” -> `performance-investigation`
 - 现在卡在“发版环境是否一致” -> `environment-config-audit`
-- 现在卡在“数据迁移是否安全” -> `data-migration-safety-review`
-- 现在卡在“能不能上线” -> `ship-readiness`
+- 现在卡在”数据迁移是否安全” -> `data-migration-safety-review`
+- 现在卡在”事故已缓解但要复盘” -> `release-incident-postmortem`
+- 现在卡在”这次改动会不会让成本失控” -> `cost-impact-review`
+- 现在卡在”数据本身质量是否可信” -> `data-quality-audit`
+- 现在卡在”能不能上线” -> `ship-readiness`
 
 ### 第一次调用
 先从一个最直接的问题开始，例如：
@@ -200,12 +212,12 @@ planning -> architecture-refactor-guidance -> change-impact-analysis -> test-str
 
 ### 线上问题
 ```text
-incident-observability-triage -> performance-investigation / systematic-debugging -> active coding workflow -> release-rollout-strategy -> ship-readiness
+incident-observability-triage -> performance-investigation / systematic-debugging -> active coding workflow -> release-rollout-strategy -> ship-readiness -> release-incident-postmortem
 ```
 
 ### 发版前检查
 ```text
-environment-config-audit -> data-migration-safety-review -> dependency-compliance-audit -> security-review -> release-rollout-strategy -> ship-readiness -> docs-writer
+environment-config-audit -> data-migration-safety-review -> data-quality-audit -> dependency-compliance-audit -> cost-impact-review -> security-review -> release-rollout-strategy -> ship-readiness -> docs-writer
 ```
 
 ---
@@ -262,6 +274,21 @@ environment-config-audit -> data-migration-safety-review -> dependency-complianc
 用 dev-workflow-kit 的 release-rollout-strategy，给这个功能设计一个带监控和回滚条件的上线方案。
 ```
 
+### 事故复盘
+```text
+用 dev-workflow-kit 的 release-incident-postmortem，把这次事故复盘成 timeline、影响、根因和后续改进项。
+```
+
+### 看成本影响
+```text
+用 dev-workflow-kit 的 cost-impact-review，评估这次改动会不会让 infra 或单请求成本明显上涨。
+```
+
+### 审计数据质量
+```text
+用 dev-workflow-kit 的 data-quality-audit，看这个表的新鲜度、完整性和重复行情况。
+```
+
 ---
 
 ## Roadmap
@@ -270,7 +297,7 @@ environment-config-audit -> data-migration-safety-review -> dependency-complianc
 
 ### 当前版本亮点
 - standalone：不依赖外部 skill 命名体系
-- 18 个 skill 覆盖从规划到交付的关键环节
+- 21 个 skill 覆盖从规划到交付的关键环节
 - v3 新增：
   - `change-impact-analysis`
   - `release-rollout-strategy`
@@ -281,6 +308,10 @@ environment-config-audit -> data-migration-safety-review -> dependency-complianc
   - `environment-config-audit`
 - v5 新增：
   - `data-migration-safety-review`
+- v6 新增：
+  - `release-incident-postmortem`
+  - `cost-impact-review`
+  - `data-quality-audit`
 
 ### 已完成
 - v1：基础 lifecycle skill 集
@@ -288,6 +319,7 @@ environment-config-audit -> data-migration-safety-review -> dependency-complianc
 - v3：impact / rollout / contract 三个方向扩展
 - v4：test strategy / performance / environment config 三个方向扩展
 - v5：data migration safety 方向扩展
+- v6：incident postmortem / cost / data quality 三个方向扩展
 - standalone 化：去除外部 skill 依赖命名
 
 ### 后续可以继续扩展

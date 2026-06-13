@@ -85,6 +85,22 @@ The added v5 skill is:
 
 This was added because data changes are often the highest-risk part of a release, and they deserve a more focused workflow than generic rollout planning or API contract review alone.
 
+## V6 expansion rationale
+
+The v6 expansion adds three skills that fill workflow gaps not yet covered by the previous batches.
+
+The 3 added v6 skills are:
+
+1. `release-incident-postmortem` for structured retrospective work after an incident has already been mitigated.
+2. `cost-impact-review` for evaluating whether a change increases infra or per-request cost.
+3. `data-quality-audit` for assessing correctness, freshness, completeness, and integrity of existing runtime data.
+
+These were chosen because they extend the pack into:
+
+- post-incident learning, which `incident-observability-triage` does not own
+- unit economics and cost regression, which is rarely first-class in agent skill catalogs
+- runtime data trust, which is distinct from migration-time safety
+
 ## Packaging choice
 
 This pack uses a lightweight local structure:

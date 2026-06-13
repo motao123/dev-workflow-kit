@@ -60,6 +60,18 @@
     "should_trigger": true
   },
   {
+    "prompt": "Use release-incident-postmortem from dev-workflow-kit to run a structured postmortem on this outage now that mitigation is complete.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use cost-impact-review from dev-workflow-kit to check whether this change increases infra or per-request cost.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use data-quality-audit from dev-workflow-kit to assess freshness, completeness, and correctness of this dataset.",
+    "should_trigger": true
+  },
+  {
     "prompt": "Use security-review from dev-workflow-kit on this auth change before we merge it.",
     "should_trigger": true
   },

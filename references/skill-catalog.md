@@ -18,6 +18,9 @@
 | 延迟、吞吐、CPU、内存等性能问题 | `performance-investigation` | 性能瓶颈类型、热点、下一步测量或优化方向 | During perf triage / before optimization |
 | 环境一致性、配置漂移、flags、secrets 风险 | `environment-config-audit` | parity 风险、config blocker、建议检查项 | Before release / before rollout |
 | 数据迁移、backfill、schema 变更安全性 | `data-migration-safety-review` | 迁移风险、回滚限制、验证 checkpoint | Before migration / before release |
+| 运行期数据正确性、新鲜度、完整性、约束完整 | `data-quality-audit` | 数据异常、严重度、修复与监控建议 | Before downstream reuse / before release |
+| 改动是否会让运行成本明显上涨 | `cost-impact-review` | 成本因子、风险点、优化与验证建议 | Before merge / before rollout |
+| 事故已缓解后的结构化复盘 | `release-incident-postmortem` | 时间线、影响、根因、改进项与负责人 | After incident mitigation |
 | 准备 merge / release | `ship-readiness` | 发布前检查表、剩余 blocker、风险摘要 | Near completion |
 | 文档和知识沉淀 | `docs-writer` | README / migration / release note / 示例草稿 | After implementation |
 
@@ -33,9 +36,12 @@
 8. `fix-ci` when automation disagrees
 9. `review-address-comments`
 10. `browser-verification` / `security-review` / `dependency-compliance-audit` / `api-contract-compatibility-review` when applicable
-11. `performance-investigation` when latency or resource pressure is the core issue
-12. `environment-config-audit` when config parity is still open
-13. `data-migration-safety-review` when persistent data transition risk is the main blocker
-14. `release-rollout-strategy` when release shape is still open
-15. `ship-readiness`
-16. `docs-writer`
+11. `cost-impact-review` when infra or per-request cost regression is a concern
+12. `data-quality-audit` when runtime data correctness is in question
+13. `performance-investigation` when latency or resource pressure is the core issue
+14. `environment-config-audit` when config parity is still open
+15. `data-migration-safety-review` when persistent data transition risk is the main blocker
+16. `release-rollout-strategy` when release shape is still open
+17. `ship-readiness`
+18. `release-incident-postmortem` after a release-related incident has been mitigated
+19. `docs-writer`

@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use cost-impact-review from dev-workflow-kit to check whether this change increases infra or per-request cost.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use cost-impact-review to estimate whether this new third-party API call will materially raise our bill.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Why is this endpoint suddenly slow in production?",
+    "should_trigger": false
+  }
+]
