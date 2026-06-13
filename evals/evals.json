@@ -1,0 +1,38 @@
+[
+  {
+    "prompt": "Use dev-workflow-kit to decide whether this request needs planning, debugging, CI triage, or release checks.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use the planning skill from dev-workflow-kit before we implement this multi-step feature.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use architecture-refactor-guidance from dev-workflow-kit before we split this module into cleaner boundaries.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use incident-observability-triage from dev-workflow-kit to triage this production alert using logs and metrics.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use dependency-compliance-audit from dev-workflow-kit to review whether this package is safe to adopt and compatible with policy.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use fix-ci instead of general debugging because the only failure is in the pipeline type-check job.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use dependency-compliance-audit rather than security-review because the main question is license and supply-chain fit.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use ship-readiness from dev-workflow-kit and tell me what is left before merge.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Explain what software delivery means without changing files.",
+    "should_trigger": false
+  }
+]

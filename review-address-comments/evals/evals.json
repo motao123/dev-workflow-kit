@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use review-address-comments to classify and resolve this PR feedback.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use review-address-comments to turn these requested changes into an action list.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Write the feature from scratch without any review context.",
+    "should_trigger": false
+  }
+]

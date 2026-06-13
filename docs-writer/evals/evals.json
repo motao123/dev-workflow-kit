@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use docs-writer to update the README for this new setup flow.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use docs-writer to draft migration notes for this breaking change.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Write production code for this endpoint now.",
+    "should_trigger": false
+  }
+]

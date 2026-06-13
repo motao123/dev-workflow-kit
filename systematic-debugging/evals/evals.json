@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use systematic-debugging to reproduce and narrow this flaky test failure before we change code.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use systematic-debugging to figure out whether this issue is in the UI, API, or database layer.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Apply this exact one-line fix right now.",
+    "should_trigger": false
+  }
+]

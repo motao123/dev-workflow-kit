@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use dependency-compliance-audit to review whether this new package is safe to adopt.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use dependency-compliance-audit because the main concern is license and supply-chain fit.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Review this endpoint for authorization bugs.",
+    "should_trigger": false
+  }
+]

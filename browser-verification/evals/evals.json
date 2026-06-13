@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use browser-verification to smoke test this new form flow and watch for console errors.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use browser-verification for this UI regression before we call it done.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Analyze this SQL query plan without any UI component.",
+    "should_trigger": false
+  }
+]

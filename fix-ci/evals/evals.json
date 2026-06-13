@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use fix-ci to inspect this pipeline failure and identify the first actionable error.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use fix-ci because the branch passes locally but fails type-check in CI.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Brainstorm product ideas for next quarter.",
+    "should_trigger": false
+  }
+]

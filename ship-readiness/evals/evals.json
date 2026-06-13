@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use ship-readiness and tell me what is left before merge.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use ship-readiness for this release candidate and list remaining blockers.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Implement this feature from scratch right now.",
+    "should_trigger": false
+  }
+]

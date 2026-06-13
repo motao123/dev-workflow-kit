@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use incident-observability-triage to triage this production alert using logs and metrics.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use incident-observability-triage to assess blast radius before we patch anything.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Fix this local unit test failure in my editor.",
+    "should_trigger": false
+  }
+]

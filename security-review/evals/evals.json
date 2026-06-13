@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use security-review on this auth change before we merge it.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use security-review for this file-upload flow and list the main risks.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Rename this variable for clarity.",
+    "should_trigger": false
+  }
+]

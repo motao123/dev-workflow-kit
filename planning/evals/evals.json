@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use planning to break this multi-step feature into implementation slices, risks, and verification steps.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use planning before we touch this refactor across backend and frontend.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Tell me the final code directly without planning.",
+    "should_trigger": false
+  }
+]

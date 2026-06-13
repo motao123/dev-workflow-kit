@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use architecture-refactor-guidance before we split this module into cleaner boundaries.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use architecture-refactor-guidance to stage this refactor without changing behavior.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Fix this exact failing test right now.",
+    "should_trigger": false
+  }
+]
