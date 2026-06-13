@@ -6,6 +6,8 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-06-13
+
 ### Added — v6: Postmortem / cost / data quality
 - `release-incident-postmortem`
 - `cost-impact-review`
@@ -62,5 +64,6 @@ This release brings together the v1–v5 skill batches, the standalone repositio
 - License completed with copyright holder.
 - Root evals cover all 18 skills.
 
-[Unreleased]: https://github.com/motao123/dev-workflow-kit/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/motao123/dev-workflow-kit/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/motao123/dev-workflow-kit/releases/tag/v1.1.0
 [1.0.0]: https://github.com/motao123/dev-workflow-kit/releases/tag/v1.0.0
