@@ -1,0 +1,8 @@
+# CODEOWNERS for dev-workflow-kit
+#
+# Lines later in this file take precedence. The repo currently has a single
+# maintainer responsible for the whole codebase.
+#
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+* @motao123
