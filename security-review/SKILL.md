@@ -41,7 +41,7 @@ For non-trivial work, provide:
 ## Coordination
 
 After review:
-- use `trellis-lightweight-tdd` for code changes
+- hand off to the repo's coding workflow for code changes
 - use `ship-readiness` when security findings affect release decisions
 - use `docs-writer` if operational guidance or migration notes are needed
 

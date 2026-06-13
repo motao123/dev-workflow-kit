@@ -22,7 +22,7 @@
 ## 推荐搭配
 
 - 深挖根因：`systematic-debugging`
-- 需要修代码：`trellis-lightweight-tdd`
+- 需要修代码：进入当前项目的实现工作流
 - 怀疑安全问题：`security-review`
 
 ## 调用示例

@@ -40,7 +40,7 @@ For non-trivial work, provide:
 ## Coordination
 
 After comment processing:
-- use `trellis-lightweight-tdd` for implementation edits
+- hand off to the active coding workflow for implementation edits
 - use `fix-ci` if review-triggered changes break automation
 - use `ship-readiness` before final merge
 

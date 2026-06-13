@@ -40,7 +40,7 @@ For non-trivial work, provide:
 ## Coordination
 
 After CI diagnosis:
-- use `trellis-lightweight-tdd` for code fixes
+- hand off to the repo's coding workflow for code fixes
 - use `systematic-debugging` if root cause is still unclear
 - use `ship-readiness` once pipeline health is restored
 

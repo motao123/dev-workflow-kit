@@ -1,17 +1,10 @@
 # Design Notes
 
-`dev-workflow-kit` exists to complement `trellis-lightweight-tdd`, not replace it.
+`dev-workflow-kit` is a standalone development workflow kit for markdown-first skill packs.
 
 ## Why this pack exists
 
-The existing `trellis-lightweight-tdd` project already does the core implementation job well:
-
-- choose the right workflow weight
-- support Trellis-aware execution
-- support strict TDD when requested
-- require verification evidence before completion
-
-What it does not fully cover is the wider engineering lifecycle around coding. Public skill ecosystems repeatedly emphasize these adjacent stages:
+Most software delivery work is larger than implementation alone. Teams repeatedly need help with:
 
 - planning and goal definition
 - systematic debugging
@@ -24,7 +17,7 @@ What it does not fully cover is the wider engineering lifecycle around coding. P
 
 ## Selection logic
 
-The 8 included skills were chosen because they add maximum coverage without duplicating `trellis-lightweight-tdd`:
+The initial skill set was chosen to cover the most common delivery bottlenecks without turning the project into an implementation-specific framework:
 
 1. `planning` handles uncertainty before coding.
 2. `systematic-debugging` handles unclear failures during coding.
@@ -37,10 +30,10 @@ The 8 included skills were chosen because they add maximum coverage without dupl
 
 ## V2 expansion rationale
 
-The v2 expansion focuses on two improvements before adding broader coverage:
+The v2 expansion focused on two improvements before adding broader coverage:
 
-1. The top-level router now needs stricter dispatch guidance so overlapping requests are easier to route consistently.
-2. The next skills should fill the most obvious lifecycle gaps without duplicating the existing pack.
+1. The top-level router needed stricter dispatch guidance so overlapping requests were easier to route consistently.
+2. The next skills needed to fill the most obvious lifecycle gaps without duplicating existing workflow coverage.
 
 The 3 added v2 skills are:
 
@@ -50,9 +43,25 @@ The 3 added v2 skills are:
 
 These were chosen before adding even more breadth because they extend the pack into high-value real-world bottlenecks that are not already first-class in v1.
 
+## V3 expansion rationale
+
+The v3 expansion focuses on strengthening the pack as a standalone delivery workflow kit.
+
+The 3 added v3 skills are:
+
+1. `change-impact-analysis` for mapping blast radius before implementation or release.
+2. `release-rollout-strategy` for phased release design, checkpoint planning, and rollback-aware delivery.
+3. `api-contract-compatibility-review` for protecting clients and downstream systems from breaking interface changes.
+
+These were chosen because they extend the pack into three common standalone workflow gaps:
+
+- understanding what a change touches
+- deciding how a release should be rolled out
+- protecting compatibility at integration boundaries
+
 ## Packaging choice
 
-This pack follows the same lightweight local structure as `trellis-lightweight-tdd`:
+This pack uses a lightweight local structure:
 
 - one project directory
 - markdown-first skill definitions

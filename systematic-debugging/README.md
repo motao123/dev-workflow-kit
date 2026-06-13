@@ -20,7 +20,7 @@
 
 ## 推荐搭配
 
-- 真正修复：`trellis-lightweight-tdd`
+- 真正修复：进入当前项目的实现工作流
 - 如果主要在流水线暴露：`fix-ci`
 - 如果是 UI 现象：`browser-verification`
 

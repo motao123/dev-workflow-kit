@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use api-contract-compatibility-review to check whether this endpoint change breaks old clients.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use api-contract-compatibility-review and tell me whether we need versioning or migration guidance.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Review this package license risk.",
+    "should_trigger": false
+  }
+]

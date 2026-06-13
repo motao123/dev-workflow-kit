@@ -20,7 +20,7 @@
 
 ## 推荐搭配
 
-- 真正改代码：`trellis-lightweight-tdd`
+- 真正改代码：进入当前项目的实现工作流
 - 改完 CI 挂了：`fix-ci`
 - 合并前总检查：`ship-readiness`
 

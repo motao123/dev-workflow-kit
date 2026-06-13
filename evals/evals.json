@@ -8,6 +8,10 @@
     "should_trigger": true
   },
   {
+    "prompt": "Use change-impact-analysis from dev-workflow-kit to show which modules and clients this change could affect.",
+    "should_trigger": true
+  },
+  {
     "prompt": "Use architecture-refactor-guidance from dev-workflow-kit before we split this module into cleaner boundaries.",
     "should_trigger": true
   },
@@ -17,6 +21,14 @@
   },
   {
     "prompt": "Use dependency-compliance-audit from dev-workflow-kit to review whether this package is safe to adopt and compatible with policy.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use api-contract-compatibility-review from dev-workflow-kit to check whether this endpoint change breaks old clients.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use release-rollout-strategy from dev-workflow-kit and give me checkpoints, rollback triggers, and rollout sequencing.",
     "should_trigger": true
   },
   {

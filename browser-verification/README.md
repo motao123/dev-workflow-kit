@@ -20,7 +20,7 @@
 
 ## 推荐搭配
 
-- 发现问题后修复：`trellis-lightweight-tdd`
+- 发现问题后修复：进入当前项目的实现工作流
 - UI 问题根因不明：`systematic-debugging`
 - 发布前验收：`ship-readiness`
 

@@ -20,7 +20,7 @@
 
 ## 推荐搭配
 
-- 实现还没稳定：`trellis-lightweight-tdd`
+- 实现还没稳定：先走当前项目的实现工作流
 - 发布前检查：`ship-readiness`
 - 牵涉敏感运维说明：`security-review`
 

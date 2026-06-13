@@ -20,7 +20,7 @@
 
 ## 推荐搭配
 
-- 真正落地实现：`trellis-lightweight-tdd`
+- 真正落地实现：进入当前项目的实现工作流
 - 范围本身不清：`planning`
 - 合并前总检查：`ship-readiness`
 

@@ -39,7 +39,7 @@ For non-trivial work, provide:
 ## Coordination
 
 Before documentation:
-- use `trellis-lightweight-tdd` if the implementation is still changing
+- use the active implementation workflow if the behavior is still changing
 - use `ship-readiness` if docs are part of release completion
 - use `security-review` if the docs touch sensitive operational guidance
 

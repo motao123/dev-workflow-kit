@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use change-impact-analysis to show what else this schema change could affect.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use change-impact-analysis before implementation so we know which tests, docs, and clients are in scope.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Implement this endpoint directly right now.",
+    "should_trigger": false
+  }
+]

@@ -43,7 +43,7 @@ For non-trivial work, provide:
 After triage:
 - use `systematic-debugging` for deeper root-cause analysis
 - use `security-review` if the incident suggests abuse, exposure, or broken permissions
-- use `trellis-lightweight-tdd` if the next step is a code fix
+- move into the repo's coding workflow if the next step is a code fix
 
 ## Invocation Examples
 

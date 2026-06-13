@@ -21,7 +21,7 @@
 
 ## 推荐搭配
 
-- 实现阶段：`trellis-lightweight-tdd`
+- 实现阶段：进入当前项目的实现工作流
 - 执行中卡住：`systematic-debugging`
 - 完成前检查：`ship-readiness`
 

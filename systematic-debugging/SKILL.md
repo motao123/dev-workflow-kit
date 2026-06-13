@@ -41,7 +41,7 @@ For non-trivial work, provide:
 ## Coordination
 
 After diagnosis:
-- use `trellis-lightweight-tdd` for the actual fix
+- move from diagnosis into the active implementation workflow for the actual fix
 - use `fix-ci` if the main failure surface is pipeline-only
 - use `browser-verification` when the bug is UI-visible
 

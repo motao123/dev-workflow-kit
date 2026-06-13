@@ -20,7 +20,7 @@
 
 ## 推荐搭配
 
-- 真正修改代码：`trellis-lightweight-tdd`
+- 真正修改代码：进入仓库当前的编码工作流
 - 根因还不清楚：`systematic-debugging`
 - 修完准备合并：`ship-readiness`
 

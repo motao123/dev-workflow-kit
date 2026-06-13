@@ -41,7 +41,7 @@ For non-trivial work, provide:
 ## Coordination
 
 After planning:
-- use `trellis-lightweight-tdd` for implementation
+- continue in the active implementation workflow
 - use `systematic-debugging` if execution stalls on unclear failures
 - use `ship-readiness` before merge or release
 

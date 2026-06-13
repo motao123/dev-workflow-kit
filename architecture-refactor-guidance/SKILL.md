@@ -41,7 +41,7 @@ For non-trivial work, provide:
 ## Coordination
 
 After structural guidance:
-- use `trellis-lightweight-tdd` for the implementation itself
+- continue in the active implementation workflow for the implementation itself
 - use `planning` if broader scope or acceptance is still unclear
 - use `ship-readiness` before merging large structural changes
 

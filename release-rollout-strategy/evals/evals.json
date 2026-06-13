@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Use release-rollout-strategy to design a safer launch plan for this feature.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Use release-rollout-strategy and give me checkpoints, rollback triggers, and monitoring focus.",
+    "should_trigger": true
+  },
+  {
+    "prompt": "Explain what CI means.",
+    "should_trigger": false
+  }
+]

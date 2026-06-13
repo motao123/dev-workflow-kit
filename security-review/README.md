@@ -20,7 +20,7 @@
 
 ## 推荐搭配
 
-- 真正改代码：`trellis-lightweight-tdd`
+- 真正改代码：进入当前项目的实现工作流
 - 合并前综合判断：`ship-readiness`
 - 需要补文档：`docs-writer`
 

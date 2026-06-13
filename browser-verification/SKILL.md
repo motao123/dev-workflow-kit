@@ -40,7 +40,7 @@ For non-trivial work, provide:
 ## Coordination
 
 After verification:
-- use `trellis-lightweight-tdd` if fixes are needed
+- move into the active implementation workflow if fixes are needed
 - use `systematic-debugging` for unclear UI failures
 - use `ship-readiness` when browser checks are part of release gates
 
